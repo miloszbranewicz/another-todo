@@ -2,6 +2,7 @@
 
 ## Functions
 - [ ] Adding tasks
+- [ ] Adding detail for task
 - [ ] Deleting tasks
 - [ ] Editing tasks
 - [ ] Saving tasks to localStorage
