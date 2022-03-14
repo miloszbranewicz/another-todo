@@ -1,2 +1,32 @@
 @use "../base/variables" as vars;
+@use "../base/typography" as typo;
+@use "../base/mixins" as mix;
 
+.todo-form {
+  max-width: 40rem;
+  position: relative;
+  &__input {
+    display: block;
+    min-height: vars.$space * 3;
+    width: 100%;
+    padding: 0 vars.$space;
+    color: vars.$primary;
+    border-radius: vars.$border-radius;
+    @include mix.border(vars.$primary);
+    @include mix.shadow(vars.$primary);
+    @extend .font--input;
+  }
+  &__input::placeholder {
+    color: rgba(vars.$input-placeholder, 0.25);
+  }
+  &__input:focus {
+    outline-color: vars.$primary-hover;
+    color: vars.$primary-hover;
+  }
+  &__submit-button {
+    transform: translateY(-50%);
+    position: absolute;
+    right: vars.$space;
+    top: 50%;
+  }
+}

@@ -2,3 +2,10 @@
 html {
     font-family: vars.$font-family;
 }
+
+.font {
+    &--input {
+        font-weight: 700;
+        font-size: vars.$space * 1.5;
+    }
+}

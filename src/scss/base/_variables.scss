@@ -16,8 +16,9 @@ $todoitem-border-base: #46aecf;
 $modalsucces-bg: #e2f8a5; 
 $modalsuccess-border: #84c120; 
 
-$input-placeholder: 700 1.25rem/normal Lato; 
 $todo-title: 700 1.25rem/normal Lato; 
 $font-family: "Lato", sans-serif;
 
 $space: 1rem;
+$shadow-range: $space * 0.25;
+$border-radius: $space * 0.25;
