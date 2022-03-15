@@ -24,9 +24,26 @@
     color: vars.$primary-hover;
   }
   &__submit-button {
+    cursor: pointer;
     transform: translateY(-50%);
     position: absolute;
     right: vars.$space;
     top: 50%;
+    background-color: vars.$primary;
+    outline: none;
+    border: none;
+    border-radius: vars.$border-radius;
+    @include mix.transition(background-color);
+  }
+  &__submit-button:hover, &__submit-button:focus {
+    background-color: vars.$primary-hover;
+  }
+  &__submit-button:active {
+      background-color: vars.$primary-active;
+  }
+  &__submit-button svg {
+    width: 24px;
+    height: 24px;
+    color: white;
   }
 }

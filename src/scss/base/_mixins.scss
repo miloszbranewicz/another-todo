@@ -6,3 +6,6 @@
 @mixin border($color) {
     border: 2px solid $color;
 }
+@mixin transition($property) {
+    transition: $property 0.3s ease-in-out;
+}
