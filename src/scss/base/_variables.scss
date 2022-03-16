@@ -2,7 +2,7 @@ $primary: #60d9f1;
 $input-placeholder: #1e608b; 
 $primary-hover: #46aecf; 
 $primary-active: #1e608b; 
-$danger: #ff5728; 
+$danger: hsla(13, 100%, 58%, 0.6); 
 $danger-hover: #db381d; 
 $danger-active: #930c0c; 
 $edit: #257bfc; 
@@ -15,10 +15,20 @@ $todoitem-background-base: #dffef9;
 $todoitem-border-base: #46aecf; 
 $modalsucces-bg: #e2f8a5; 
 $modalsuccess-border: #84c120; 
+$white: #fff;
 
-$todo-title: 700 1.25rem/normal Lato; 
 $font-family: "Lato", sans-serif;
 
 $space: 1rem;
 $shadow-range: $space * 0.25;
 $border-radius: $space * 0.25;
+
+$todo-height: $space * 4.5;
+$todo-padding: $space;
+$todo-icon-padding: $space * 0.125;
+$todo-icons-margin: $space;
+$todo-icons-width: $space * 3.5;
+
+
+$svg-width: $space * 1.5;
+$svg-height: $svg-width;

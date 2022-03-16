@@ -11,7 +11,7 @@
     width: 100%;
     padding: 0 vars.$space;
     color: vars.$primary;
-    border-radius: vars.$border-radius;
+
     @include mix.border(vars.$primary);
     @include mix.shadow(vars.$primary);
     @extend .font--input;

@@ -1,5 +1,14 @@
 @use "./base/reset";
-@use "./base/variables";
+@use "./base/variables" as vars;
 @use "./base/typography";
 @use "./layout/grid";
 @use "./components/todo-form";
+@use "./components/todo";
+
+ul {
+    max-width: 40rem;
+}
+svg {
+    width: vars.$svg-width;
+    height: vars.$svg-height;
+}

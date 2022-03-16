@@ -5,6 +5,7 @@
 }
 @mixin border($color) {
     border: 2px solid $color;
+    border-radius: vars.$border-radius;
 }
 @mixin transition($property) {
     transition: $property 0.3s ease-in-out;

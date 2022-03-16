@@ -1,0 +1,56 @@
+@use "../base/mixins" as mix;
+@use "../base/variables" as vars;
+@use "../layout/grid";
+
+.todo {
+  @include mix.border(vars.$todoitem-border-base);
+  @include mix.transition(background-color);
+  @extend .flex, .align-items-center;
+  min-height: vars.$todo-height;
+  background-color: rgba(vars.$todoitem-background-base, 0.15);
+  padding: vars.$todo-padding;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(vars.$primary-hover, 0.15);
+  }
+
+  &__title {
+    @extend .flex-grow-1;
+    color: vars.$todo-title;
+  }
+
+  &__icons {
+    @extend .flex, .justify-content-between;
+    width: vars.$todo-icons-width;
+    margin-left: vars.$todo-icons-margin;
+    cursor: pointer;
+    color: vars.$white;
+  }
+  &__icon-delete,
+  &__icon-done {
+    @include mix.transition(background-color);
+    padding: vars.$todo-icon-padding;
+    border-radius: vars.$border-radius;
+  }
+  &__icon-delete {
+    background-color: vars.$danger;
+  }
+  &__icon-delete:hover,
+  &__icon-delete:focus {
+    background-color: vars.$danger-hover;
+  }
+  &__icon-delete:active {
+    background-color: vars.$danger-active;
+  }
+  &__icon-done {
+    background-color: vars.$success;
+  }
+  &__icon-done:hover,
+  &__icon-done:focus {
+    background-color: vars.$success-hover;
+  }
+  &__icon-done:active {
+    background-color: vars.$success-active;
+  }
+}
