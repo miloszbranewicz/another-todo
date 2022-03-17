@@ -11,4 +11,5 @@ ul {
 svg {
     width: vars.$svg-width;
     height: vars.$svg-height;
+    pointer-events: none;
 }
