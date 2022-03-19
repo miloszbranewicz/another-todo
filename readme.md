@@ -1,9 +1,9 @@
 # Todo list app (another 😁)
 
 ## Functions
-- [ ] Adding tasks
+- [x] Adding tasks
 - [ ] Adding detail for task
-- [ ] Deleting tasks
+- [x] Deleting tasks
 - [ ] Editing tasks
 - [ ] Saving tasks to localStorage
 - [ ] Creating custom labels for tasks
