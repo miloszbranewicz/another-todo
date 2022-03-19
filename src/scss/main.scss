@@ -4,6 +4,7 @@
 @use "./layout/grid";
 @use "./components/todo-form";
 @use "./components/todo";
+@use "./components/modal";
 
 ul {
     max-width: 40rem;

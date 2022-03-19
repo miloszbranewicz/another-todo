@@ -1,0 +1,50 @@
+@use '../base/variables' as vars;
+@use '../base/mixins' as mix;
+@use "../layout/grid";
+
+.modal {
+    @include mix.border(vars.$primary);
+    @include mix.shadow(vars.$primary);
+    background-color: vars.$white;
+    padding: vars.$space;
+    max-width: vars.$modal-max-width;
+    margin: 0 auto;
+    position: relative;
+    transform: translateY(-50%);
+    top:20%;
+    
+    &-backdrop {
+        display: none;
+        position: absolute;
+        inset: 0;
+        background-color: vars.$modal-backdrop;
+        &--open {
+            display: block;
+        }
+    }
+    &__header {
+        @extend .flex, .justify-content-between;
+        font-size: vars.$modal-header-font-size;
+    }
+    &__close {
+        @include mix.border(vars.$danger);
+        @include mix.transition(all);
+        width:24px;
+        height:24px;
+        color: vars.$danger;
+        background-color: vars.$white;
+        cursor: pointer;
+    }
+    &__close:hover, &__close:focus {
+        background-color: vars.$danger;
+        color: vars.$white;
+    }
+    &__close:active {
+        background-color: vars.$danger-active;
+        border-color: vars.$danger-active;
+    }
+    
+    &__body {
+        margin-top: 1rem;
+    }
+}

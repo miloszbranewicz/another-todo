@@ -16,8 +16,10 @@ $todoitem-border-base: #46aecf;
 $modalsucces-bg: #e2f8a5; 
 $modalsuccess-border: #84c120; 
 $white: #fff;
+$black: #000;
 
 $font-family: "Lato", sans-serif;
+$font-size: 1rem;
 
 $space: 1rem;
 $shadow-range: $space * 0.25;
@@ -32,3 +34,8 @@ $todo-icons-width: $space * 4;
 
 $svg-width: $space * 1.5;
 $svg-height: $svg-width;
+
+$modal-backdrop: rgba($black, 0.25);
+$modal-border: $primary;
+$modal-max-width: $space * 48;
+$modal-header-font-size : $font-size * 1.75;

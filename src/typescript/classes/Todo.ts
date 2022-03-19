@@ -1,12 +1,12 @@
-type TodoClassnames =  {
-  iconDelete : string;
+type TodoClassnames = {
+  iconDelete: string;
   iconDone: string;
 }
 export class Todo {
   title: string | null;
   static classNames: TodoClassnames = {
-    iconDelete : 'todo__icon-delete',
-    iconDone : 'todo__icon-done'
+    iconDelete: 'todo__icon-delete',
+    iconDone: 'todo__icon-done'
   };
   ICON_DELETE = `<div class=${Todo.classNames.iconDelete}>
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -22,13 +22,15 @@ export class Todo {
                 </svg>
               </div>`;
   todoElement: HTMLLIElement;
+  details: string
   constructor(title: string) {
     this.title = title;
     this.todoElement = this.createTodo();
+    this.details = ''
   }
 
 
-  private createTodo():HTMLLIElement {
+  private createTodo(): HTMLLIElement {
     const liElement = document.createElement("li");
     liElement.classList.add("todo");
     const todoHeader = document.createElement("h2");
@@ -43,8 +45,8 @@ export class Todo {
     return liElement;
   }
 
-  
-  get getTodoElement():HTMLLIElement {
+
+  get getTodoElement(): HTMLLIElement {
     return this.todoElement;
   }
 }
