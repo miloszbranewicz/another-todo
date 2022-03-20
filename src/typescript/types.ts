@@ -1,7 +1,7 @@
 export type Modal = {
     modal: HTMLDivElement,
-    modalTitle: HTMLHeadingElement,
-    detailsInput: HTMLDivElement,
+    title: HTMLHeadingElement,
+    details: HTMLDivElement,
     close: HTMLButtonElement,
     save: HTMLButtonElement,
 }

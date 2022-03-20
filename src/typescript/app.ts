@@ -11,20 +11,23 @@ const todoForm: HTMLFormElement = document.getElementById('todo-form') as HTMLFo
 
 const Modal: Modal = {
     modal: document.getElementById('todo-details-modal') as HTMLDivElement,
-    modalTitle: document.getElementById('todo-details-title') as HTMLHeadingElement,
-    detailsInput: document.getElementById('todo-details') as HTMLDivElement,
+    title: document.getElementById('todo-details-title') as HTMLHeadingElement,
+    details: document.getElementById('todo-details') as HTMLDivElement,
     close: document.getElementById('todo-details-close') as HTMLButtonElement,
     save: document.getElementById('todo-details-save') as HTMLButtonElement
 }
 
-document.addEventListener('DOMContentLoaded', () =>{
+document.addEventListener('DOMContentLoaded', () => {
+    // Id of todoItem which details are currently open
+
     todoForm.addEventListener('submit', (e: Event) => {
         e.preventDefault();
         addTodo()
     })
     removeTodo()
-    openTodoDetails(todoListing, Modal);
+    openTodoDetails(Modal);
     closeModal(Modal);
+
 })
 
 

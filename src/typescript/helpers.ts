@@ -29,7 +29,7 @@ export function render(): void {
  * It adds a new todo to the current todos.
  */
 export function addTodo(): void {
-   
+
     const formInput = document.getElementById('todo-form-title') as HTMLInputElement;
     const inputValue = formInput.value;
     if (inputValue.length) {
@@ -61,39 +61,40 @@ export function removeTodo() {
  */
 export function closeModal(modalObject: Modal): void {
     modalObject.modal?.addEventListener('click', (e: Event) => {
+
         const target = e.target as HTMLDivElement | HTMLButtonElement;
-        if (target === modalObject.save) {                
-                modalObject.modal?.classList.remove('modal-backdrop--open');
-                return   
+        if (target === modalObject.save) {
+            const todoToSaveID = modalObject.modal.dataset.uid as string;
+            currentTodos.updateTodo(todoToSaveID, modalObject.title.innerText, modalObject.details.innerText)
+            const titleToUpdate = todoListing.querySelector(`.todo[data-uid="${todoToSaveID}"]`)?.firstChild as HTMLHeadingElement
+            titleToUpdate.textContent = currentTodos.getTodoByUid(todoToSaveID)?.title as string
+            modalObject.modal?.classList.remove('modal-backdrop--open');
+            return
         }
         if ((target.id === 'todo-details-modal') || (target === modalObject.close)) {
             modalObject.modal?.classList.remove('modal-backdrop--open');
         }
+
     });
 }
 
-/**
- * It listens for clicks on the todo list and if the click is on a todo item or the todo title, it
- * opens clicked todo details in modal window.
- * @param {HTMLUListElement} todoListing - HTMLUListElement - The list of todos.
- * @param {Modal} modalObject - Modal
- */
-export function openTodoDetails(todoListing: HTMLUListElement, modalObject: Modal): void {
+
+
+export function openTodoDetails(modalObject: Modal): void {
     todoListing.addEventListener('click', (e: Event) => {
         const target = e.target as HTMLLIElement | HTMLHeadingElement;
-
         if (target.classList.contains('todo')) {
             const targetDataUid = target.getAttribute('data-uid') as string;
             const currentTodoData = currentTodos.getTodoByUid(targetDataUid);
             if (currentTodoData) {
-                modalObject.modalTitle.textContent = currentTodoData.title
-                if (currentTodoData.details) {
-                    modalObject.detailsInput.textContent = currentTodoData.details
-                }
+                modalObject.modal.dataset.uid = currentTodoData.id
+                modalObject.title.textContent = currentTodoData.title
+                modalObject.details.textContent = currentTodoData.details
             }
             modalObject.modal?.classList.add('modal-backdrop--open');
         }
     })
+
 }
 
 

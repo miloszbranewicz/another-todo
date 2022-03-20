@@ -23,6 +23,7 @@ export class TodoCollection {
     }
     updateTodo(uid: string, title?: string, details?: string): void {
         const index = this.currentTodos.findIndex(item => item.id === uid)
+        
         if (title) this.currentTodos[index].title = title
         if (details) this.currentTodos[index].details = details
     }
