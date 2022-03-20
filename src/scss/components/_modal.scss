@@ -23,7 +23,7 @@
         }
     }
     &__header {
-        @extend .flex, .justify-content-between;
+        @extend .flex;
         font-size: vars.$modal-header-font-size;
         font-weight: vars.$modal-header-font-weight;
         color: vars.$input-placeholder;
@@ -54,6 +54,7 @@
 
 .todo-details {
     width: 100%;
+    min-height: 10rem;
     @include mix.border(vars.$primary-hover);
     resize: vertical;
     padding: 0.5rem;
@@ -62,6 +63,12 @@
     font-family: vars.$font-family;
     
     &:focus, &:active {
+        outline-color: vars.$todo-title;
+    }
+    &-title {
+        @extend .flex-grow-1
+    }
+    &-title:focus, &:active {
         outline-color: vars.$todo-title;
     }
     &-save {
