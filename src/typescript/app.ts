@@ -1,12 +1,11 @@
 
-import { Todo } from "./classes/Todo.js";
+import { TodoCollection } from "./classes/TodoCollection.js";
 import { addTodo, closeModal, openTodoDetails, removeTodo } from "./helpers.js";
 import { Modal } from "./types.js";
 
+export const currentTodos = new TodoCollection();
 
-
-const todoListing: HTMLUListElement = document.getElementById('todo-listing') as HTMLUListElement;
-export let currentTodos: Array<Todo> = []
+export const todoListing: HTMLUListElement = document.getElementById('todo-listing') as HTMLUListElement;
 const todoForm: HTMLFormElement = document.getElementById('todo-form') as HTMLFormElement;
 
 
@@ -18,15 +17,17 @@ const Modal: Modal = {
     save: document.getElementById('todo-details-save') as HTMLButtonElement
 }
 
-
-closeModal(Modal);
-
-openTodoDetails(todoListing, Modal);
-removeTodo(todoListing, currentTodos)
-
-todoForm.addEventListener('submit', (e: Event) => {
-    addTodo(e, currentTodos, todoListing);
+document.addEventListener('DOMContentLoaded', () =>{
+    todoForm.addEventListener('submit', (e: Event) => {
+        e.preventDefault();
+        addTodo()
+    })
+    removeTodo()
+    openTodoDetails(todoListing, Modal);
+    closeModal(Modal);
 })
+
+
 
 
 
