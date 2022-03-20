@@ -25,6 +25,9 @@
     &__header {
         @extend .flex, .justify-content-between;
         font-size: vars.$modal-header-font-size;
+        font-weight: vars.$modal-header-font-weight;
+        color: vars.$input-placeholder;
+        
     }
     &__close {
         @include mix.border(vars.$danger);
@@ -45,6 +48,39 @@
     }
     
     &__body {
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+    }
+}
+
+.todo-details {
+    width: 100%;
+    @include mix.border(vars.$primary-hover);
+    resize: vertical;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: vars.$input-placeholder;
+    font-family: vars.$font-family;
+    
+    &:focus, &:active {
+        outline-color: vars.$todo-title;
+    }
+    &-save {
+        display: block;
+        margin: 1.5rem auto 0 auto;
+        @include mix.border(vars.$success);
+        @include mix.transition(background-color);
+        font-weight: 600;
+        padding: 0.5em 1.5em;
+        cursor: pointer;
+        color: vars.$white;
+        background-color: vars.$success
+    }
+    &-save:hover, &-save:focus {
+        background-color: vars.$success-hover;
+        border-color: vars.$success-hover;
+    }
+    &-save:active {
+        background-color: vars.$success-active;
+        border-color: vars.$success-active;
     }
 }

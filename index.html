@@ -27,14 +27,17 @@
         </form>
         <ul id="todo-listing" class="listing">
         </ul>
-        <button onclick="openModal();">OpenModal</button>
-        <div class="modal-backdrop">
+        
+        <div id='todo-details-modal' class="modal-backdrop">
             <div class="modal">
-                <div class="modal__header">Test
-                    <button onclick="closeModal();" class="modal__close">x</button>
+                <div class="modal__header">
+                    <h3 id="todo-details-title"></h3>
+                    <button id="todo-details-close" class="modal__close">x</button>
                 </div>
-                <div class="modal__body">Test</div>
-                
+                <div class="modal__body">
+                    <textarea class="todo-details" id="todo-details" placeholder="Todo details..."></textarea>
+                </div>
+                <button id='todo-details-save' class="todo-details-save">Save</button>
             </div>
         </div>
     </main>
@@ -42,13 +45,7 @@
 
 </html>
 <script>
-function openModal() {
-    const modal = document.querySelector('.modal-backdrop');
-    modal.classList.add('modal-backdrop--open');
-}
+    
 
-function closeModal() {
-    const modal = document.querySelector('.modal-backdrop');
-    modal.classList.remove('modal-backdrop--open');
-}
+    
 </script>

@@ -1,4 +1,5 @@
 import { Todo } from "./classes/Todo.js";
+import { Modal } from "./types.js";
 
 
 
@@ -25,7 +26,7 @@ export function render(currentTodos: Array<Todo>, todoListing: HTMLUListElement)
  * @param currentTodos - The array of todo elements that are currently in the DOM.
  * @param {HTMLUListElement} todoListing - The ul element that contains the todos.
  */
-export function addTodo(e: Event, currentTodos: Array<HTMLLIElement>, todoListing: HTMLUListElement):void {
+export function addTodo(e: Event, currentTodos: Array<HTMLLIElement>, todoListing: HTMLUListElement): void {
     e.preventDefault();
     const formInput = document.getElementById('todo-form-title') as HTMLInputElement;
     const inputValue = formInput.value;
@@ -43,7 +44,7 @@ export function addTodo(e: Event, currentTodos: Array<HTMLLIElement>, todoListin
  * @param {HTMLUListElement} todoListing - HTMLUListElement - The list of todos.
  * @param currentTodos - Array<HTMLLIElement>
  */
-export function removeTodo(todoListing: HTMLUListElement, currentTodos: Array<HTMLLIElement>):void {
+export function removeTodo(todoListing: HTMLUListElement, currentTodos: Array<HTMLLIElement>): void {
     todoListing.addEventListener('click', (e: Event) => {
         const target = e.target as HTMLElement | null;
         if (target && target.classList.contains(Todo.classNames.iconDelete)) {
@@ -67,7 +68,7 @@ export function removeTodo(todoListing: HTMLUListElement, currentTodos: Array<HT
  * @param {HTMLLIElement} [newTodo] - The new todo we want to add to the list.
  * @returns Nothing is being returned.
  */
-function updateArrayOfTodos(currentTodos: HTMLLIElement[], operation: string, targetIndex: number | null , newTodo?: HTMLLIElement): void | null{
+function updateArrayOfTodos(currentTodos: HTMLLIElement[], operation: string, targetIndex: number | null, newTodo?: HTMLLIElement): void | null {
     if (operation === 'add' && newTodo) {
         currentTodos.push(newTodo)
     } else if (operation === 'remove' && targetIndex) {
@@ -77,4 +78,38 @@ function updateArrayOfTodos(currentTodos: HTMLLIElement[], operation: string, ta
     } else {
         return null;
     }
+}
+
+/**
+ * It closes the modal when the user clicks on the modal backdrop, the close button, or the save button.
+ * @param {Modal} modalObject - Modal
+ */
+export function closeModal(modalObject: Modal, callback?: Function) {
+    modalObject.modal?.addEventListener('click', (e: Event) => {
+        const target = e.target as HTMLDivElement | HTMLButtonElement;
+        if (target === modalObject.save) {
+            callback ? callback : null
+        }
+
+        if ((target.id === 'todo-details-modal') || (target === modalObject.close)) {
+            modalObject.modal?.classList.remove('modal-backdrop--open');
+        }
+    });
+}
+
+/**
+ * It listens for clicks on the todo list and if the click is on a todo item or the todo title, it
+ * opens clicked todo details in modal window.
+ * @param {HTMLUListElement} todoListing - HTMLUListElement - The list of todos.
+ * @param {Modal} modalObject - Modal
+ */
+export function openTodoDetails(todoListing: HTMLUListElement, modalObject: Modal): void {
+    todoListing.addEventListener('click', (e: Event) => {
+        const target = e.target as HTMLLIElement | HTMLHeadingElement;
+
+        if (target.classList.contains('todo') || target.classList.contains('todo__title')) {
+                modalObject.modal?.classList.add('modal-backdrop--open');
+                
+        }
+    })
 }
