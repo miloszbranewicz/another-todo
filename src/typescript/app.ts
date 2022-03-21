@@ -1,4 +1,5 @@
 
+import { Controller } from "./classes/Controller.js";
 import { TodoCollection } from "./classes/TodoCollection.js";
 import { addTodo, closeModal, openTodoDetails, removeTodo } from "./helpers.js";
 import { Modal } from "./types.js";
@@ -18,6 +19,7 @@ const Modal: Modal = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    Controller.getTodosFromStorage()
     // Id of todoItem which details are currently open
 
     todoForm.addEventListener('submit', (e: Event) => {

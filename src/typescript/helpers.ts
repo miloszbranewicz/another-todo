@@ -1,4 +1,5 @@
 import { currentTodos, todoListing } from "./app.js";
+import { Controller } from "./classes/Controller.js";
 import { Todo } from "./classes/Todo.js";
 import { Modal } from "./types.js";
 
@@ -34,6 +35,7 @@ export function addTodo(): void {
     const inputValue = formInput.value;
     if (inputValue.length) {
         currentTodos.addNewTodo(new Todo(inputValue, generateID()))
+        Controller.saveTolocalStorage(currentTodos.getCurrentTodos())
         todoListing.appendChild(currentTodos.getLatestTodo().getTodoElement)
         formInput.value = ''
     }
