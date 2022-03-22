@@ -5,8 +5,4 @@
 - [x] Adding detail for task
 - [x] Deleting tasks
 - [x] Editing tasks
-- [ ] Saving tasks to localStorage
-- [ ] Creating custom labels for tasks
-- [ ] Filtering tasks by created labels
-- [ ] Exporting todos to file
 - [x] Marking as done
