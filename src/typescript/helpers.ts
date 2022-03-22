@@ -15,12 +15,12 @@ export function generateID(): string {
 /**
  * It renders the todo list.
  */
-export function render(): void {
+export function render(currentTodos: Array<Todo>): void {
     while (todoListing.firstChild) {
         todoListing.removeChild(todoListing.firstChild)
     }
     const fragment = document.createDocumentFragment()
-    currentTodos.getCurrentTodos().forEach(todo => {
+    currentTodos.forEach(todo => {
         fragment.appendChild(todo.getTodoElement)
     })
     todoListing.appendChild(fragment)
@@ -39,7 +39,6 @@ export function addTodo(): void {
         todoListing.appendChild(currentTodos.getLatestTodo().getTodoElement)
         formInput.value = ''
     }
-    console.log(currentTodos.getCurrentTodos())
 }
 
 /**

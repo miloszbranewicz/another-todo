@@ -1,7 +1,7 @@
 
 import { Controller } from "./classes/Controller.js";
 import { TodoCollection } from "./classes/TodoCollection.js";
-import { addTodo, closeModal, openTodoDetails, removeTodo } from "./helpers.js";
+import { addTodo, closeModal, openTodoDetails, removeTodo, render } from "./helpers.js";
 import { Modal } from "./types.js";
 
 export const currentTodos = new TodoCollection();
@@ -19,8 +19,22 @@ const Modal: Modal = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    Controller.getTodosFromStorage()
-    // Id of todoItem which details are currently open
+    
+    todoListing.addEventListener('click', (e: Event) => {
+        const target = e.target as HTMLDivElement;
+
+        if (target && target.classList.contains('todo__icon-done')) {
+            const currentItem = target.parentElement?.parentElement
+            
+            if (currentItem) {
+                if (currentItem.style.opacity === '0.3'){
+                    currentItem.style.opacity = '1'
+                }else {
+                    currentItem.style.opacity = '0.3'
+                }
+            }
+        }
+    })
 
     todoForm.addEventListener('submit', (e: Event) => {
         e.preventDefault();
@@ -31,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModal(Modal);
 
 })
-
 
 
 

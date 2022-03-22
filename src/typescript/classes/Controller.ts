@@ -18,8 +18,7 @@ export class Controller {
     public static getTodosFromStorage() {
         const todos = localStorage.getItem('todos')
         if (todos) {
-
-            console.log(JSON.parse(todos))
+            return JSON.parse(todos) as Array<Todo>
         }
     }
 }
