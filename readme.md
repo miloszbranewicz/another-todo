@@ -9,4 +9,4 @@
 - [ ] Creating custom labels for tasks
 - [ ] Filtering tasks by created labels
 - [ ] Exporting todos to file
-- [ ] Marking as done
+- [x] Marking as done
