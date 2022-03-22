@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Lato", sans-serif;
+}
+
+.font--input, .todo-form__input {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.flex, .modal__header, .todo, .todo__icons {
+  display: flex;
+}
+.flex-grow-1, .todo-details-title, .todo__title {
+  flex-grow: 1;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-between, .todo__icons {
+  justify-content: space-between;
+}
+
+.align-items-center, .todo {
+  align-items: center;
+}
+
+.place-content-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-form {
+  max-width: 40rem;
+  position: relative;
+}
+.todo-form__input {
+  display: block;
+  min-height: 3rem;
+  width: 100%;
+  padding: 0 1rem;
+  color: #60d9f1;
+  border: 2px solid #60d9f1;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.25rem rgba(96, 217, 241, 0.25);
+}
+.todo-form__input::placeholder {
+  color: rgba(30, 96, 139, 0.25);
+}
+.todo-form__input:focus {
+  outline-color: #46aecf;
+  color: #46aecf;
+}
+.todo-form__submit-button {
+  cursor: pointer;
+  transform: translateY(-50%);
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  background-color: #60d9f1;
+  outline: none;
+  border: none;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease-in-out;
+}
+.todo-form__submit-button:hover, .todo-form__submit-button:focus {
+  background-color: #46aecf;
+}
+.todo-form__submit-button:active {
+  background-color: #1e608b;
+}
+.todo-form__submit-button svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.todo {
+  border: 2px solid #46aecf;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease-in-out;
+  min-height: 4.5rem;
+  background-color: rgba(223, 254, 249, 0.15);
+  padding: 1rem;
+  cursor: pointer;
+}
+.todo:hover {
+  background-color: rgba(70, 174, 207, 0.15);
+}
+.todo__title {
+  pointer-events: none;
+  color: #1e608b;
+}
+.todo__icons {
+  width: 4rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+.todo__icon-delete, .todo__icon-done {
+  transition: background-color 0.3s ease-in-out;
+  padding: 0.125rem;
+  border-radius: 0.25rem;
+}
+.todo__icon-delete {
+  background-color: rgba(255, 87, 41, 0.6);
+}
+.todo__icon-delete:hover, .todo__icon-delete:focus {
+  background-color: #db381d;
+}
+.todo__icon-delete:active {
+  background-color: #930c0c;
+}
+.todo__icon-done {
+  background-color: #84c120;
+}
+.todo__icon-done:hover, .todo__icon-done:focus {
+  background-color: #6aa517;
+}
+.todo__icon-done:active {
+  background-color: #3d6f0a;
+}
+
+.modal {
+  border: 2px solid #60d9f1;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.25rem rgba(96, 217, 241, 0.25);
+  background-color: #fff;
+  padding: 1rem;
+  max-width: 48rem;
+  margin: 0 auto;
+  position: relative;
+  transform: translateY(-50%);
+  top: 20%;
+}
+.modal-backdrop {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.modal-backdrop--open {
+  display: block;
+}
+.modal__header {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1e608b;
+}
+.modal__close {
+  border: 2px solid rgba(255, 87, 41, 0.6);
+  border-radius: 0.25rem;
+  transition: all 0.3s ease-in-out;
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 87, 41, 0.6);
+  background-color: #fff;
+  cursor: pointer;
+}
+.modal__close:hover, .modal__close:focus {
+  background-color: rgba(255, 87, 41, 0.6);
+  color: #fff;
+}
+.modal__close:active {
+  background-color: #930c0c;
+  border-color: #930c0c;
+}
+.modal__body {
+  margin-top: 1.5rem;
+}
+
+.todo-details {
+  width: 100%;
+  min-height: 10rem;
+  border: 2px solid #46aecf;
+  border-radius: 0.25rem;
+  resize: vertical;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #1e608b;
+  font-family: "Lato", sans-serif;
+}
+.todo-details:focus, .todo-details:active {
+  outline-color: #1e608b;
+}
+.todo-details-title:focus, .todo-details:active {
+  outline-color: #1e608b;
+}
+.todo-details-save {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  border: 2px solid #84c120;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease-in-out;
+  font-weight: 600;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  color: #fff;
+  background-color: #84c120;
+}
+.todo-details-save:hover, .todo-details-save:focus {
+  background-color: #6aa517;
+  border-color: #6aa517;
+}
+.todo-details-save:active {
+  background-color: #3d6f0a;
+  border-color: #3d6f0a;
+}
+
+ul {
+  max-width: 40rem;
+}
+
+svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  pointer-events: none;
+}
+
+/*# sourceMappingURL=style.css.map */
