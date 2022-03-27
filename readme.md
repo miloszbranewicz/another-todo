@@ -1,4 +1,5 @@
 # Todo list app (another 😁)
+I have created this project to dive into typescript and figure out what typescript is 😌
 
 ## Functions
 - [x] Adding tasks
